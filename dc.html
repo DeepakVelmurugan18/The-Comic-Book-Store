@@ -1,0 +1,498 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>THE COMIC BOOK STORE</title>
+  <link rel="icon" type="./ChatGPT Image Jul 28, 2025, 10_46_43 AM.png"
+    href="./ChatGPT Image Jul 28, 2025, 10_46_43 AM.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Sidebar Hover Container -->
+  <div class="sidebar-container">
+    <div class="sidebar" id="sidebar">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-dash"
+          viewBox="0 0 16 16">
+          <path d="M6.5 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z" />
+          <path
+            d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+        </svg>
+        <span>Shop</span>
+      </div>
+
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item"><a href="./index.html" class="nav-link"><i class="bi bi-bag"></i><span>Home</span></a>
+        </li>
+        <li class="nav-item"><a href="./Marvel.html" class="nav-link"><i class="bi bi-person-badge"></i><span>Marvel</span></a>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-controller"></i><span>DC Comics</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-suit-club"></i><span>Card
+              Games</span></a></li>
+        <li class="nav-item"><a href="./fantasy & magic.html" class="nav-link"><i class="bi bi-box-seam"></i><span>fantasy & magic</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-book"></i><span>Comics</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-star"></i><span>Stan Lee Signed
+              Comics</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-journal-text"></i><span>Graphic
+              Novel</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-journal-richtext"></i><span>Light
+              Novel</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-book-half"></i><span>Manga</span></a>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-pencil"></i><span>Stationary</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-joystick"></i><span>Toys &
+              Models</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-collection"></i><span>Trading Card
+              Supplies</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-credit-card"></i><span>Trading
+              Cards</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <nav class="navbar-custom">
+    <div class="left-section">
+      <i class="bi bi-search search-icon" id="searchIcon"></i>
+      <div class="search-box" id="searchBox">
+        <input type="text" placeholder="Search comics..." id="searchInput">
+      </div>
+    </div>
+
+    <div class="navbar-brand" id="navbarBrand">
+      <img src="./ChatGPT Image Jul 28, 2025, 10_46_43 AM.png" alt="Logo" />
+      <span id="titlee">THE COMIC BOOK STORE</span>
+    </div>
+
+    <div class="right-section">
+  <a href="./signup.html" id="signupBtn" class="btn btn-outline-light btn-sm">Sign Up</a>
+  <a href="./login.html" id="loginBtn" class="btn btn-outline-warning btn-sm">Login</a>
+  <button id="logoutBtn" class="btn btn-outline-danger btn-sm" style="display: none;">Logout</button>
+  <i class="bi bi-heart"><span class="badge">0</span></i>
+  <i class="bi bi-bag"><span class="badge">0</span></i>
+</div>
+
+  </nav>
+  <div id="favoritesPanel" class="favorites-panel">
+    <div class="panel-header">
+      <h5>Favorites</h5>
+      <button id="closeFavPanel" class="btn-close btn-close-white"></button>
+    </div>
+    <div id="favoritesContent" class="favorites-content">
+      <p class="empty-message">Oops! Nothing here...</p>
+    </div>
+  </div>
+  <!-- Cart Panel -->
+<div id="cartPanel" class="cart-panel">
+  <div class="panel-header">
+    <h5>Your Cart</h5>
+    <button id="closeCartPanel" class="btn-close btn-close-white"></button>
+  </div>
+  <div id="cartContent" class="cart-content">
+    <p class="empty-message">Cart is empty!</p>
+  </div>
+  <div class="cart-footer">
+    <div class="total-price">Total: ₹<span id="cartTotal">0</span></div>
+    <button class="checkout-btn">BUY NOW</button>
+  </div>
+</div>
+<main class="main-wrapper">
+  <div class="card-container">
+    <!-- 30 DC Comics Cards -->
+
+    <!-- 1 -->
+    <div class="comic-card">
+      <img src="https://resizing.flixster.com/-_xknJnKgo4tOauYXbkO4GCmiUM=/206x305/v2/https://resizing.flixster.com/-XZAfHZM39UwaGJIFWKAE8fS0ak=/v3/t/assets/p178016_p_v8_az.jpg" alt="Watchmen" />
+      <div class="comic-info">
+        <h4>Watchmen</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2999</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 2 -->
+    <div class="comic-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/e/e9/Batman_The_Dark_Knight_Returns_%28film%29.jpg" alt="The Dark Knight Returns" />
+      <div class="comic-info">
+        <h4>The Dark Knight Returns</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹3199</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 3 -->
+    <div class="comic-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTeKC6yduFDh_LCNAF796nHPkeZ4hHoMzSh2A&s" alt="Batman: Year One" />
+      <div class="comic-info">
+        <h4>Batman: Year One</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2499</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 4 -->
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/91AjPQQfMUL._UF1000,1000_QL80_.jpg" alt="Batman: Hush" />
+      <div class="comic-info">
+        <h4>Batman: Hush</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2799</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 5 -->
+    <div class="comic-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/fd/Kingdom_Come_Deliverance.jpg" alt="Kingdom Come" />
+      <div class="comic-info">
+        <h4>Kingdom Come</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2899</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 6 -->
+    <div class="comic-card">
+      <img src="https://preview.redd.it/its-now-been-three-years-since-crisis-on-infinite-earths-v0-s3nw4eqh2zba1.jpg?width=640&crop=smart&auto=webp&s=34db1051fe7a8424050682f2ecbb20a2b2282ee7" alt="Crisis on Infinite Earths" />
+      <div class="comic-info">
+        <h4>Crisis on Infinite Earths</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2999</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 7 -->
+    <div class="comic-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRJ8PRvzrwpRAAnJjnfQnqNEGDE6YTR6fThQw&s" alt="The Killing Joke" />
+      <div class="comic-info">
+        <h4>The Killing Joke</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2399</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+      <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/81oxI3fwvlL.jpg" alt="The Long Halloween" />
+      <div class="comic-info">
+        <h4>The Long Halloween</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2699</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 9 -->
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/71ko8MOtPsL._UF1000,1000_QL80_.jpg" alt="Green Lantern: Rebirth" />
+      <div class="comic-info">
+        <h4>Green Lantern: Rebirth</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2599</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 10 -->
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/81TlmYYs0oL._UF1000,1000_QL80_.jpg" alt="Superman: For All Seasons" />
+      <div class="comic-info">
+        <h4>Superman: For All Seasons</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2699</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+    <!-- 12 -->
+    
+
+    <!-- 13 -->
+    <div class="comic-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ_skfurWDYQdfdA8Kq24H6wT-wDDzfNu1qew&shttps://upload.wikimedia.org/wikipedia/en/d/d3/Blackest_Night.jpg" alt="Blackest Night" />
+      <div class="comic-info">
+        <h4>Blackest Night</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2699</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 14 -->
+    <div class="comic-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQhlUce9rB5ydSQkQE54wtPqXr05cKwUghkhw&s" alt="Court of Owls" />
+      <div class="comic-info">
+        <h4>The Court of Owls</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2599</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 15 -->
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/81zJdVSrwoL._UF1000,1000_QL80_.jpg" alt="Superman: Red Son" />
+      <div class="comic-info">
+        <h4>Superman: Red Son</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2499</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 16 -->
+    <div class="comic-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTB1G-pWfO7RQCG21PuEk3fLrcWqUr6He5cwg&s" alt="All-Star Superman" />
+      <div class="comic-info">
+        <h4>All-Star Superman</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2399</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 17 -->
+    <div class="comic-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQkaDw4TBzwBZTSMDwthddsuvGwcqe1r9__0Q&s" alt="Identity Crisis" />
+      <div class="comic-info">
+        <h4>Identity Crisis</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2599</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 18 -->
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/81XsrhVxPyL.jpg" alt="Justice League: Origin" />
+      <div class="comic-info">
+        <h4>Justice League: Origin</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2699</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 19 -->
+    <div class="comic-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQd4ygs7y3lIw6OQsrSKBGYodVYpSIZjkLmFw&s" alt="The Dark Knight III" />
+      <div class="comic-info">
+        <h4>The Dark Knight III</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2899</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 20 -->
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/71Y4yoB3k9L._UF1000,1000_QL80_.jpg" alt="Batman: Ego" />
+      <div class="comic-info">
+        <h4>Batman: Ego</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2499</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+     <div class="comic-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/4/42/Batman_Arkham_Asylum_Videogame_Cover.jpg" alt="Arkham Asylum" />
+      <div class="comic-info">
+        <h4>Arkham Asylum</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2699</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 24 -->
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/91msnkAhlpL._UF1000,1000_QL80_.jpg" alt="Supergirl: Cosmic Adventures" />
+      <div class="comic-info">
+        <h4>Supergirl: Cosmic Adventures</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2399</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+   
+
+
+   
+
+   
+
+    <!-- 29 -->
+    <div class="comic-card">
+      <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1456240846i/21524950.jpg" alt="Forever Evil" />
+      <div class="comic-info">
+        <h4>Forever Evil</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2599</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <!-- 30 -->
+    <div class="comic-card">
+      <img src="https://upload.wikimedia.org/wikipedia/en/f/f6/Trinity_Vol_2_1_Variant.png" alt="Trinity" />
+      <div class="comic-info">
+        <h4>Trinity</h4>
+        <p class="publisher">DC COMICS</p>
+        <p class="price">₹2199</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+  </div>
+</main>
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>

@@ -1,0 +1,551 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <title>THE COMIC BOOK STORE</title>
+  <link rel="icon" type="./ChatGPT Image Jul 28, 2025, 10_46_43 AM.png"
+    href="./ChatGPT Image Jul 28, 2025, 10_46_43 AM.png">
+
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/css/bootstrap.min.css" rel="stylesheet">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.5/font/bootstrap-icons.css" rel="stylesheet">
+  <link rel="stylesheet" href="./style.css">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Luckiest+Guy&display=swap" rel="stylesheet">
+</head>
+
+<body>
+
+  <!-- Sidebar Hover Container -->
+  <div class="sidebar-container">
+    <div class="sidebar" id="sidebar">
+      <div class="logo">
+        <svg xmlns="http://www.w3.org/2000/svg" width="20" height="20" fill="currentColor" class="bi bi-cart-dash"
+          viewBox="0 0 16 16">
+          <path d="M6.5 7a.5.5 0 0 0 0 1h4a.5.5 0 0 0 0-1z" />
+          <path
+            d="M.5 1a.5.5 0 0 0 0 1h1.11l.401 1.607 1.498 7.985A.5.5 0 0 0 4 12h1a2 2 0 1 0 0 4 2 2 0 0 0 0-4h7a2 2 0 1 0 0 4 2 2 0 0 0 0-4h1a.5.5 0 0 0 .491-.408l1.5-8A.5.5 0 0 0 14.5 3H2.89l-.405-1.621A.5.5 0 0 0 2 1zm3.915 10L3.102 4h10.796l-1.313 7zM6 14a1 1 0 1 1-2 0 1 1 0 0 1 2 0m7 0a1 1 0 1 1-2 0 1 1 0 0 1 2 0" />
+        </svg>
+        <span>Shop</span>
+      </div>
+
+      <ul class="nav nav-pills flex-column">
+        <li class="nav-item"><a href="./index.html" class="nav-link"><i class="bi bi-bag"></i><span>Home</span></a>
+        </li>
+        <li class="nav-item"><a href="./Marvel.html" class="nav-link"><i class="bi bi-person-badge"></i><span>Marvel</span></a>
+        </li>
+        <li class="nav-item"><a href="./dc.html" class="nav-link"><i class="bi bi-controller"></i><span>DC Comics</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-suit-club"></i><span>Card
+              Games</span></a></li>
+        <li class="nav-item"><a href="./fantasy & magic.html" class="nav-link"><i class="bi bi-box-seam"></i><span>Fantasy & Magic</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-book"></i><span>Comics</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-star"></i><span>Stan Lee Signed
+              Comics</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-journal-text"></i><span>Graphic
+              Novel</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-journal-richtext"></i><span>Light
+              Novel</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-book-half"></i><span>Manga</span></a>
+        </li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-pencil"></i><span>Stationary</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-joystick"></i><span>Toys &
+              Models</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-collection"></i><span>Trading Card
+              Supplies</span></a></li>
+        <li class="nav-item"><a href="#" class="nav-link"><i class="bi bi-credit-card"></i><span>Trading
+              Cards</span></a></li>
+      </ul>
+    </div>
+  </div>
+  <nav class="navbar-custom">
+    <div class="left-section">
+      <i class="bi bi-search search-icon" id="searchIcon"></i>
+      <div class="search-box" id="searchBox">
+        <input type="text" placeholder="Search comics..." id="searchInput">
+      </div>
+    </div>
+
+    <div class="navbar-brand" id="navbarBrand">
+      <img src="./ChatGPT Image Jul 28, 2025, 10_46_43 AM.png" alt="Logo" />
+      <span id="titlee">THE COMIC BOOK STORE</span>
+    </div>
+
+    <div class="right-section">
+  <a href="./signup.html" id="signupBtn" class="btn btn-outline-light btn-sm">Sign Up</a>
+  <a href="./login.html" id="loginBtn" class="btn btn-outline-warning btn-sm">Login</a>
+  <button id="logoutBtn" class="btn btn-outline-danger btn-sm" style="display: none;">Logout</button>
+  <i class="bi bi-heart"><span class="badge">0</span></i>
+  <i class="bi bi-bag"><span class="badge">0</span></i>
+</div>
+
+  </nav>
+  <div id="favoritesPanel" class="favorites-panel">
+    <div class="panel-header">
+      <h5>Favorites</h5>
+      <button id="closeFavPanel" class="btn-close btn-close-white"></button>
+    </div>
+    <div id="favoritesContent" class="favorites-content">
+      <p class="empty-message">Oops! Nothing here...</p>
+    </div>
+  </div>
+  <!-- Cart Panel -->
+<div id="cartPanel" class="cart-panel">
+  <div class="panel-header">
+    <h5>Your Cart</h5>
+    <button id="closeCartPanel" class="btn-close btn-close-white"></button>
+  </div>
+  <div id="cartContent" class="cart-content">
+    <p class="empty-message">Cart is empty!</p>
+  </div>
+  <div class="cart-footer">
+    <div class="total-price">Total: ₹<span id="cartTotal">0</span></div>
+    <button class="checkout-btn">BUY NOW</button>
+  </div>
+</div>
+
+<main class="main-wrapper">
+  <div class="card-container">
+
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/81N+GKLlRnL._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+      <div class="comic-info">
+        <h4>Fables</h4>
+        <p class="publisher">Bill Willingham</p>
+        <p class="price">₹1118</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="comic-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTaMMdE-od5tqu2d7Ra4dx1t1awDFVUaZW18Q&s" alt="Comic Cover" />
+      <div class="comic-info">
+        <h4>The Sandman</h4>
+        <p class="publisher">Neil Gaiman</p>
+        <p class="price">₹1257</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="comic-card">
+      <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTOycfQg5b78EWAxQvLbKHpuTVVO6G_4eQ-Ig&s" alt="Comic Cover" />
+      <div class="comic-info">
+        <h4>Books of Magic</h4>
+        <p class="publisher">Neil Gaiman</p>
+        <p class="price">₹928</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/81o2xzxzmTL._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+      <div class="comic-info">
+        <h4>Hellboy in Hell</h4>
+        <p class="publisher">Mike Mignola</p>
+        <p class="price">₹820</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+    <div class="comic-card">
+      <img src="https://m.media-amazon.com/images/I/81GfjsZ-kuL._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+      <div class="comic-info">
+        <h4>Rat Queens</h4>
+        <p class="publisher">Kurtis J. Wiebe</p>
+        <p class="price">₹647</p>
+        <div class="btn-group">
+          <button class="buy-btn">BUY NOW</button>
+        </div>
+        <div class="btn-group">
+          <button class="cart-btn">ADD TO CART</button>
+          <button class="fav-btn"><i class="bi bi-heart"></i></button>
+        </div>
+      </div>
+    </div>
+
+   <div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRZ214Q-9LhF05tx_JaJ_k___IyuyqPGuERrw&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Monstress</h4>
+    <p class="publisher">Marjorie Liu</p>
+    <p class="price">₹801</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://m.media-amazon.com/images/I/51WOMRkqFEL._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>The Wicked + The Divine</h4>
+    <p class="publisher">Kieron Gillen</p>
+    <p class="price">₹642</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://m.media-amazon.com/images/I/819YUhI20dL._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Birthright</h4>
+    <p class="publisher">Joshua Williamson</p>
+    <p class="price">₹578</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://m.media-amazon.com/images/I/81pDT-hQviL._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Magic Order</h4>
+    <p class="publisher">Mark Millar</p>
+    <p class="price">₹970</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://m.media-amazon.com/images/I/81ViK9DxQFL._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Witchblade</h4>
+    <p class="publisher">David Wohl</p>
+    <p class="price">₹1043</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://upload.wikimedia.org/wikipedia/en/2/24/Lady_Death_Dead_Rising.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Lady Death</h4>
+    <p class="publisher">Brian Pulido</p>
+    <p class="price">₹553</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://m.media-amazon.com/images/M/MV5BMzU2MGI2NGEtZGZlZC00NjQxLThkMWMtMzZlNDY4Mjk4ZThkXkEyXkFqcGc@._V1_.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Red Sonja</h4>
+    <p class="publisher">Gail Simone</p>
+    <p class="price">₹499</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+<div class="comic-card">
+  <img src="https://images-na.ssl-images-amazon.com/images/S/compressed.photo.goodreads.com/books/1337962210i/14435379.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Skullkickers</h4>
+    <p class="publisher">Jim Zub</p>
+    <p class="price">₹799</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://m.media-amazon.com/images/I/71Kjw7mphZL._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Die</h4>
+    <p class="publisher">Kieron Gillen</p>
+    <p class="price">₹899</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ1wlK5YiQS-702_H_Clfruzj1bamuAWMekjQ&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Saga</h4>
+    <p class="publisher">Brian K. Vaughan</p>
+    <p class="price">₹1050</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://m.media-amazon.com/images/I/91j3M-KaNML._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Once & Future</h4>
+    <p class="publisher">Kieron Gillen</p>
+    <p class="price">₹685</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcS3u2I-pWR1sEaRWHshPxuxZqmz7VV7rLdyJA&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Seven to Eternity</h4>
+    <p class="publisher">Rick Remender</p>
+    <p class="price">₹999</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRcX3fhl9v8tzXQS-fJZRDGKJvqJ7lUmd_agw&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Coda</h4>
+    <p class="publisher">Simon Spurrier</p>
+    <p class="price">₹859</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRhXA6MiKa9O_hpMMAFFqmBTNx6CEXA6yO4yQ&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Reborn</h4>
+    <p class="publisher">Mark Millar</p>
+    <p class="price">₹729</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSl0DIuv7uzJiooYAC_QKlK8Ewi8pDqaJSUPg&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Delcourt's Shadowman</h4>
+    <p class="publisher">Justin Jordan</p>
+    <p class="price">₹675</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcT3ZxJCfZ8xJSnM9X7_SRWIJlt2tXRzFpLkcQ&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Isola</h4>
+    <p class="publisher">Brenden Fletcher</p>
+    <p class="price">₹789</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRp7eQyhtse1k8vgGntcVNFAOpNTzuV8BJebg&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Lucifer</h4>
+    <p class="publisher">Mike Carey</p>
+    <p class="price">₹880</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://m.media-amazon.com/images/I/81rjsgZhoML._UF1000,1000_QL80_.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>The Dreaming</h4>
+    <p class="publisher">Simon Spurrier</p>
+    <p class="price">₹698</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcThAYpmAILTYfOaG_zpEBfrmDOfjL6ztO24fQ&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Mystik U</h4>
+    <p class="publisher">Alisa Kwitney</p>
+    <p class="price">₹720</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTttTEBPcVl2SKwQkItcLReu3GnmRlZ1d97CQ&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>The Last God</h4>
+    <p class="publisher">Phillip Kennedy Johnson</p>
+    <p class="price">₹990</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://m.media-amazon.com/images/M/MV5BYTMxMDRkNGQtNTIwMy00N2FjLWFmYzEtNTA2YTRkODQ2ZDkxXkEyXkFqcGc@._V1_.jpg" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>Witchfinder</h4>
+    <p class="publisher">Mike Mignola</p>
+    <p class="price">₹710</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+<div class="comic-card">
+  <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcQ20D0NnRGGggXW_e61Ywv3I7ahS37N2B-eXg&s" alt="Comic Cover" />
+  <div class="comic-info">
+    <h4>The Me You Love in the Dark</h4>
+    <p class="publisher">Skottie Young</p>
+    <p class="price">₹780</p>
+    <div class="btn-group">
+      <button class="buy-btn">BUY NOW</button>
+    </div>
+    <div class="btn-group">
+      <button class="cart-btn">ADD TO CART</button>
+      <button class="fav-btn"><i class="bi bi-heart"></i></button>
+    </div>
+  </div>
+</div>
+
+
+  </div>
+</main>
+
+
+
+   <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.7/dist/js/bootstrap.bundle.min.js"></script>
+
+  <script src="./script.js"></script>
+</body>
+
+</html>
